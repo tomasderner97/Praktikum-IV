@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "*.aux": true,
+        "*.log": true,
+        "*.out": true,
+        "*.synctex.gz": true,
+        "**/__pycache__": true
+    },
+    "cSpell.words": [
+        "fotoefektem"
+    ],
+}
