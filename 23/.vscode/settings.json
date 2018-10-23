@@ -6,9 +6,5 @@
         "*.synctex.gz": true,
         "**/__pycache__": true
     },
-    "cSpell.words": [
-        "Higgsově",
-        "Higgsův",
-        "Hypatia"
-    ],
+    "cSpell.words": [],
 }
