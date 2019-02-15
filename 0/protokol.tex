@@ -1,0 +1,142 @@
+\documentclass{protokol}
+\leftheader{Studium spekter záření gama polovodičovým spektrometrem}
+% \centerheader{Praktikum IV}
+\rightheader{Tomáš Derner}
+
+\begin{document}
+
+  \section*{Úkol}
+
+    \begin{enumerate}
+      \item Proveďte kalibraci spektrometru pomocí preparátu obsahujícího \textsuperscript{226}Ra (hodinky).
+      \item Změřte spektrum $\gamma$-záření z \textsuperscript{137}Cs. Z aparaturního spektra určete:
+      \begin{itemize}
+        \item energii $\gamma$-záření (FEP),
+        \item polohu comptonovy hrany,
+        \item hraniční energii dvojného comptonova rozptylu,
+        \item polohu píku zpětného rozptylu,
+        \item energii/e $\gamma$-záření přirozeného pozadí a identifikujte zdroj/e.
+      \end{itemize}
+      \item Změřte spektrum $\gamma$-záření z \textsuperscript{24}Na. Z aparaturního spektra určete:
+      \begin{itemize}
+        \item energie $\gamma$-záření (FEP1, FEP2),
+        \item polohy comptonových hran příslušných k oběma FEP,
+        \item polohu píku zpětného rozptylu (společný oběma FEP),
+        \item polohy viditelných únikových píků (SEP2, DEP2, případně DEP1),
+        \item polohu anihilačního píku.
+      \end{itemize}
+      \item Vysvětlete mechanizmy vzniku pozorovaných objektů v aparaturních spektrech.
+      \item Porovnejte změřené polohy všech pozorovaných objektů ve spektrech s tabulkovými
+      nebo teoretickými hodnotami. 
+      
+    \end{enumerate}
+
+  \section*{Teorie}
+
+    S aktivní oblastí polovodičového detektoru interagují dopadající ionizující částice, v tomto případě částice $\gamma$. Touto interakcí vznikají volné elektrony, které jsou následně vnějším polem unášeny na elektrodu, kde se registrují.
+    
+    Jedním z mechanizmů vzniku volných elektronů je fotoefekt, při kterém dochází k předání energie fotonu na elektron. Tento elektron je uvolněn z atomového obalu s energií fotonu zmenšenou o ionizační energii potřebnou k uvolnění z obalu. Ionizační energie je však v našem případě výrazně menší než energie fotonu, proto je energie takto vzniklého volného elektronu úměrná energii fotonu. Tyto elektrony přispívají k píku FEP (Full Energy Peak).
+
+    Dalším jevem je rozptyl fotonů na volných elektronech, tzv. Comptonův efekt. Energie předaná elektronu závisí na úhlu rozptylu, její průběh je však spojitý, proto se dá dobře rozlišit jen její extrémní hodnota, vznikající při úhlu rozptylu $\pi$. Tehdy předá foton elektronu maximum energie. To ve spektru vytvoří tzv. comptonovu hranu.
+
+    Pro výpočet polohy comptonovy hrany lze použít vzorec
+    \begin{equation} \label{eq:CH}
+      E_\text{CH} = \frac{2E_\text{FEP}^2}{m_e + 2 E_\text{FEP}},
+    \end{equation}
+    kde $m_e = \SI{511}{keV}$ je klidová energie elektronu.
+
+    Ekvivalentní vzorec platí také pro výpočet polohy hrany dvojného comptonova rozptylu
+    \begin{equation} \label{eq:DCR}
+      E_\text{DCR} = \frac{4E_\text{FEP}^2}{m_e + 4 E_\text{FEP}}.
+    \end{equation}
+    Mechanizmus vzniku této hrany je stejný jako výše, avšak foton se comptonovsky rozptýlil dvakrát.
+
+    Je-li energie fotonu vyšší než $2 m_e$, může se foton přeměnit na pár elektron-pozitron. Pozitron velmi rychle anihiluje a vyzařuje dva fotony s energií blízkou $m_e$. Tyto fotony poté mohou být opět absorbovány a tím přispívají k píku FEP, nebo může jeden či oba uniknout z oblasti detektoru. V případě úniku jednoho fotonu vzniká jedno-únikový pík SEP (Single Escape Peak), v případě úniku obou fotonů vzniká dvou-únikový pík DEP (Double Escape Peak).
+
+    Fotony také mohou interagovat mimo detektor. Do detektoru se dostávají fotony comptonovsky rozptýlené mimo detektor a vytvářejí široký pík zpětného rozptylu. Také tvorba elektron-pozitronového páru a následná anihilace může proběhnout mimo detektor, dostane-li se poté do detektoru jeden z vyzářených fotonů, přispívá svou energií blízkou $m_e$ k anihilačnímu píku.
+
+    Energetické píky jsou charakterizovány svojí polohou $E$, svojí šířkou v polovině maxima FWHM a hodnotou \textit{Net Area} $N$. Údaj FWHM je s chybou určení polohy píku $\sigma_E$ spojen vztahem 
+    \begin{equation} \label{eq:FWHM}
+      \text{FWHM} = 2 \sqrt{2 \ln 2} \sigma_E.
+    \end{equation}
+
+    
+  \section*{Výsledky}
+
+    \subsection*{Úkol 1}
+
+      Pomocí spektra preparátu \textsuperscript{226}Ra a softwaru v praktiku byla provedena kalibrace měření, tedy přiřazení odpovídajících hodnot energií kanálům. Kalibrační křivka je kvadratická s předpisem $E = A + B k + C k^2$, kde $k$ je číslo kanálu. Koeficienty jsou 
+      $$ A = \SI{-4.955430E-002}{keV}, $$
+      $$ B = \SI{4.477776E-001}{keV}, $$
+      $$ C = \SI{2.606223E-008}{keV}. $$
+      Protože konstanta $C$ je řádově menší než ostatní, je v intervalu, který nás zajímá, kalibrace v podstatě lineární. Při zpracování dat byla však použita nepřiblížená kvadratická kalibrace. Použité spektrum je zobrazeno v přiloženém grafu nahoře.
+  
+    \subsection*{Úkol 2}
+
+      V tabulce \ref{tab:cs} jsou uvedeny informace o pících \textsuperscript{137}Cs. Chyba polohy píku $\sigma_E$ byla spočtena podle \eqref{eq:FWHM}. Níže jsou pak uvedeny odečtené energie comptonovské hrany, hrany dvojného comptonova rozptylu a píku zpětného rozptylu. Chyby těchto hodnot byly určeny odhadem. Popsané spektrum je zobrazeno v grafu v příloze.
+
+      \begin{table}[H]
+        \centering
+        \setlength{\tabcolsep}{10pt}
+        \input{tab/cs}
+        \caption{Informace o pících \textsuperscript{137}Cs} 
+        \label{tab:cs}
+      \end{table}
+
+      $$ E_\text{CH} = \SI{478 \pm 5}{keV} $$
+      $$ E_\text{DCR} = \SI{563 \pm 18}{keV} $$
+      $$ E_\text{ZR} = \SI{186 \pm 3}{keV} $$
+
+      Podle vztahu \eqref{eq:CH} spočteme teoretickou polohu comptonovy hrany
+      $$ E_\text{CH, teorie} = \SI{477.34 \pm 0.73}{keV} $$
+      a podle \eqref{eq:DCR} polohu dvojného comptonova rozptylu
+      $$ E_\text{DCR, teorie} = \SI{554.58 \pm 0.77}{keV}. $$
+
+    \subsection*{Úkol 3}
+
+      V tomto úkolu bylo měřeno spektrum $\gamma$ záření NaCl. Protože však chlor do spektra příliš nepřispívá, ve zbytku protokolu mluvíme o tomto měření jako o měření spektra \textsuperscript{24}Na. V tabulce \ref{tab:na} jsou uvedeny informace o pících, níže opět energie hran a zpětného píku. Chyby byly určeny jako výše. Popsané spektrum je zobrazeno v grafu v příloze.
+
+      \begin{table}[H]
+        \centering
+        \setlength{\tabcolsep}{10pt}
+        \input{tab/na}
+        \caption{Informace o pících \textsuperscript{24}Na}
+        \label{tab:na}
+      \end{table}
+
+      $$ E_{CH1} = \SI{2520 \pm 8}{keV} $$
+      $$ E_{CH2} = \SI{1150 \pm 10}{keV} $$
+      $$ E_\text{ZR} = \SI{240 \pm 6}{keV} $$
+
+      Podle vztahu \eqref{eq:CH} spočteme teoretickou polohu comptonovy hrany
+      $$ E_\text{CH1, teorie} = \SI{2520.55 \pm 1.09}{keV}, $$
+      $$ E_\text{CH2, teorie} = \SI{1153.39 \pm 0.84}{keV}. $$
+
+    \subsection*{Úkol 4 a 5}
+
+      Náplň těchto úkolů byla provedena v sekci teorie, úkolu 2 a 3 a diskuse.
+
+  \section*{Diskuse}
+
+    Tabulková hodnota píku \textsuperscript{137}Cs je $\SI{661.657}{keV}$, hodnoty píků \textsuperscript{24}Na jsou $\SI{2754.028}{keV}$ a\\ $\SI{1368.633}{keV}$ \cite{spektra}. Naměřené polohy píků se s těmito hodnotami v rámci chyby shodují. Comptonovské hrany se shodují s vypočtenými hodnotami. Hrana dvojného rozptylu \textsuperscript{137}Cs má větší odhad chyby, protože tato hrana je ve spektru velmi špatně definovaná.
+    
+    \textsuperscript{40}K má pík v poloze $\SI{1460.830}{keV}$ \cite{spektra}, což potvrzuje náš odhad v úkolu 2. Správnost určení ostatních píků jako produkty \textsuperscript{226}Ra lze snadno ověřit srovnáním hodnot s referenčními hodnotami použitými pro kalibraci, popsané v grafu v příloze nahoře. Píky SEP1 a DEP1 mají energii (v rámci chyby) o $m_e$, resp. $2 m_e$ nižší než pík FEP1, což souhlasí s teorií. Taktéž anihilační pík má polohu blízkou energii $m_e$.
+
+
+  \section*{Závěr}
+
+    Byla provedena kalibrace spektrometru pomocí preparátu obsahujícího \textsuperscript{226}Ra. Byla použitá nepřiblížená kvadratická kalibrace.
+
+    Bylo změřeno spektrum $\gamma$-záření z \textsuperscript{137}Cs. Byly určeny polohy zajímavých hran a píků. Tyto polohy odpovídají teoretickým předpovědím. Totéž bylo provedeno pro \textsuperscript{24}Na. Byly vysvětleny mechanizmy vzniku těchto hran a píků.
+
+  \begin{thebibliography}{}
+ 
+    \bibitem{pokyny}
+    Pokyny k měření ``Studium spekter $\gamma$-záření polovodičovým spektrometrem'', dostupné z\\ \url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_400.pdf}, 7.\,11.\,2018
+
+    \bibitem{spektra}
+    The Lund/LBNL Nuclear Data Search, dostupné z\\ \url{http://nucleardata.nuclear.lu.se/toi/}, 7.\,11.\,2018
+   
+  \end{thebibliography}
+
+\end{document} 
