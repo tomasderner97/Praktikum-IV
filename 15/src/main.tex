@@ -29,6 +29,15 @@
 
     V této úloze studujeme atomová emisní spektra plynů.
     Využíváme k tomu hranolový spektrometr Hilgerova typu, jehož detailní popis je uveden ve studijním textu~\cite{pokyny}.
+    Tento spektrometr neudává přímo vlnové délky pozorovaných čar, je proto potřeba jej okalibrovat pomocí známých vlnových délek emisního spektra rtuti.
+    Tabulkové hodnoty těchto vlnových délek jsou uvedeny v sekci výsledků měření v tabulce~\ref{tab:kalibrace}.
+
+    Pro rozlišovací schopnost $R$ spektrometru platí vztah
+    \begin{equation} \label{eq:R}
+        R = \frac{\lambda}{d\lambda},
+    \end{equation}
+    který určuje minimální rozdíl vlnových délek $\lambda$ a $\lambda + d\lambda$, který ještě spektrometr dokáže rozlišit.
+    V tomto případě využijeme pro určení rozlišovací schopnosti měření dubletů sodíku.
 
     Ve viditelném emisním spektru vodíku jsou pozorovatelné čtyři čáry \ch{H_{$\alpha$}} (červená), \ch{H_{$\beta$}} (modrozelená), \ch{H_{$\gamma$}} (modrá) a \ch{H_{$\delta$}} (fialová).
     Tyto čáry jsou součástí tzv. Balmerovy série, pro vlnočty jejíž spektrálních čár platí vztah
@@ -36,11 +45,18 @@
         \sigma = \frac{1}{\lambda} = R \left( \frac{1}{4} - \frac{1}{n^2} \right),
     \end{equation}
     kde $R$ je Rydbergova konstanta a $n = 3, 4, 5, 6$ jsou přirozená čísla odpovídající jednotlivým čarám.
+    Rydbergovu konstantu určíme z tohoto vztahu metodou nejmenších čtverců.
 
 
 
     \section*{Výsledky}
 
+    \begin{figure}[h]
+        \centering
+        \includegraphics{plot.pdf}
+        \caption{}
+        \label{fig:fig}
+    \end{figure}
 
 
     \section*{Diskuse}
