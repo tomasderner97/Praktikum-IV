@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from custom_utils.science.basics import latex_style
-from customutils2.science.basics import dataframe_from_csv
+from scireputils.dataframes import dataframe_from_csv
+from scireputils.plotting import matplotlib_use_latex_style
 
 from project_wide import calibration
+
+matplotlib_use_latex_style()
 
 
 def get_calibration_points():
@@ -11,24 +13,23 @@ def get_calibration_points():
 
 
 def plot_calibration(name=""):
-    with latex_style():
-        fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
 
-        degrees = np.linspace(900, 3350, 1000)
-        lambdas = calibration(degrees)
-        calibration_pts = get_calibration_points()
+    degrees = np.linspace(900, 3350, 1000)
+    lambdas = calibration(degrees)
+    calibration_pts = get_calibration_points()
 
-        ax.plot(degrees, lambdas, ":", c="grey", label=r"Kalibrační křivka")
-        ax.plot(calibration_pts["degrees"], calibration_pts["lambda"], "kx", label=r"Naměřené body")
+    ax.plot(degrees, lambdas, ":", c="grey", label=r"Kalibrační křivka")
+    ax.plot(calibration_pts["degrees"], calibration_pts["lambda"], "kx", label=r"Naměřené body")
 
-        ax.set_xlabel("Obecné jednotky")
-        ax.set_ylabel(r"$\lambda\si{nm}$")
-        ax.autoscale(axis="x", tight=True)
-        ax.legend()
+    ax.set_xlabel("Obecné jednotky")
+    ax.set_ylabel(r"$\lambda [\si{nm}]$")
+    ax.autoscale(axis="x", tight=True)
+    ax.legend()
 
-        fig.tight_layout()
+    fig.tight_layout()
 
-        fig.savefig(f"../plot/{name or 'plot'}.pdf")
+    fig.savefig(f"../plot/{name or 'plot'}.pdf")
 
     return fig, ax
 

@@ -1,4 +1,4 @@
-from customutils2.science.basics import dataframe_from_csv
+from scireputils.dataframes import dataframe_from_csv
 
 FIT_PARAMETERS = None
 
