@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{protokol}[2017/09/20]
+\ProvidesClass{scirep}[2019/11/19]
 
 \LoadClass[11pt]{article}
 \RequirePackage[utf8]{inputenc}
@@ -22,6 +22,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{caption}
 \RequirePackage{lipsum}
+\RequirePackage{chemformula}
 
 \captionsetup[figure]{skip=0pt}
 
@@ -30,29 +31,11 @@
 
 \setlength{\headheight}{14pt}
 
-\begin{comment}
-%% hack to make cmidrule work
-\makeatletter
-\begingroup
-\toks0=\expandafter{\@cline{#1}-{#2}\@nil}
-\@ifpackageloaded{booktabs}{%
-  \toks2=\expandafter{\@@@cmidrule[{#1}-{#2}]{#3}{#4}}%
-}{}
-\catcode`-=\active
-\edef\x{\gdef\unexpanded{\@cline#1-#2\@nil}{\the\toks0}}\x
-\@ifpackageloaded{booktabs}{%
-  \edef\x{\gdef\unexpanded{\@@@cmidrule[#1-#2]#3#4}{\the\toks2}}\x
-}{}
-\endgroup
-\makeatother
-%% end of hack
-\end{comment}
-
 \pagestyle{fancy}
 \fancyhead{}
 \parindent 2ex
 %\setlength{\parskip}{\baselineskip}
-\graphicspath{{plot/}{./}{fig/}{../plot/}{../fig/}}
+\graphicspath{{plots/}{./}{figures/}{../plots/}{../figures/}}
 
 \newcommand{\leftheader}[1]{\fancyhead[L]{#1}}
 \newcommand{\centerheader}[1]{\fancyhead[C]{#1}}

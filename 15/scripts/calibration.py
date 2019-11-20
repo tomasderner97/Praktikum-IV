@@ -29,7 +29,7 @@ def plot_calibration(name=""):
 
     fig.tight_layout()
 
-    fig.savefig(f"../plot/{name or 'plot'}.pdf")
+    fig.savefig(f"../plots/{name or 'plot'}.pdf")
 
     return fig, ax
 
