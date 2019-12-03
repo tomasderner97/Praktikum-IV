@@ -1,4 +1,5 @@
 \documentclass{scirep}
+\usepackage{amsmath}
 
 \leftheader{Sternův-Gerlachův experiment}
 \centerheader{Praktikum IV}
@@ -32,23 +33,59 @@
     Abychom mohli detekovat polohy dopadajících atomů, je detektor umístěn na posuvné dráze kolmé na směr dráhy atomů.
     Podrobnější popis použité aparatury lze nalézt ve studijním textu~\cite{pokyny}.
 
-    Pro převod měřeného napětí $U_x$ [V] na polohu detektoru $x$ [mm] lze použít lineární závislost $x = \num{21,20}  U_x + \num{1,90}$.
+    Bohrův magneton lze spočítat ze vztahu
+    \begin{equation} \label{eq:bohr}
+        \mu_B = \frac{2k_b T}{lL\left( 1 - \frac{L}{2l} \right)} \frac{q}{\frac{\partial B}{\partial x}},
+    \end{equation}
+    kde $k_b$ je Boltzmannova konstanta, $T$ je teplota v pícce, $l = \SI{70}{cm}$ je délka dráhy atomů a $L = \SI{7}{cm}$ je délka magnetického analyzátoru.
+    Veličinu $q$ lze vyjádřit vztahem
+    \[ q = \frac{3}{2} \Delta x - \frac{2C}{\Delta x}, \]
+    kde $\Delta x$ je vzdálenost maxim píků naměřených závislostí dopadů atomů na detektor v závislosti na jeho poloze a
+    \[ C = \frac{D^4 - \frac{p^4}{5}}{D^2 - \frac{p^2}{3}} \]
+    je konstanta.
+    Význam konstant $D$ a $p$ je znázorněn na obrázku~\ref{fig:curves}.
+
+    Pro převod měřeného napětí $U_x$ [V] na polohu detektoru $x$ [mm] lze použít lineární závislost $x = \num{21,20}~U_x + \num{1,90}$.
+    Gradient magnetického pole v analyzátoru lze vyjádřit vztahem
+    \[ \frac{\partial B}{\partial z} = 0.968 \frac{B}{a}, \]
+    kde $a = \SI{2,5}{mm}$ je konstanta související s konstrukcí analyzátoru.
 
 
     \section*{Výsledky}
 
     Po zkontrolování kvality vakua jsme zapnuli přísun proudu do pícky a pozorovali narůstající odezvu detektoru.
+    Během měření byla teplota pícky udržována na hodnotě $t = \SI{170}{\celsius}$.
     Pozorovaná závislost je uvedena v tabulce~\ref{tab:heating} a grafu na obrázku~\ref{fig:heating}.
-
-    Pomocí přepínání polarity proudu tekoucího magnetickým analyzátorem za postupného snižování jeho hodnoty jsme demagnetizovali jádro analyzátoru.
-
 
     \VAR{tab_heating}
     \VAR{fig_heating}
 
+    Pomocí přepínání polarity proudu tekoucího magnetickým analyzátorem za postupného snižování jeho hodnoty jsme demagnetizovali jádro analyzátoru.
+    Poté jsme programem Stern-Gerlach proměřili závislost odezvy detektoru (závisející na počtu dopadajících atomů) na poloze detektoru pro různé hodnoty proudu protékajícího magnetickým analyzátorem a odpovídající hodnoty gradientu magnetického pole.
+    Okometricky jsme odhadnuli polohy maxim píků a určili jejich vzdálenosti.
+    Naměřené hodnoty jsou shrnuty v tabulce~\ref{tab:spread} a v grafech na obrázku~\ref{fig:curves}.
+
+    \VAR{tab_spread}
+    \VAR{fig_0A_fit}
+    \VAR{fig_curves}
+
+    Abychom mohli dopočítat hodnotu Bohrova magnetonu, určili jsme hodnotu výrazu $\frac{q}{\frac{\partial B}{\partial x}}$ pomocí lineární regrese zobrazené v grafu na obrázku~\ref{fig:spread}.
+    Směrnice fitovací přímky je $ k = \SI{0.0493 \pm 0.0008}{\tesla\per\square\milli\metre} $.
+    Pomocí vztahu~\eqref{eq:bohr} spočítáme hodnotu Bohrova magnetonu
+    \[ \mu_B = \SI{1.30 \pm 0.04 e-23}{\joule\per\tesla}. \]
+
+    Tabulková hodnota činí \[ \mu_{B, \text{tab}} = \SI{0.93 e-23}{\joule\per\tesla}. \]
+    \VAR{fig_spread}
+
     \section*{Diskuse}
 
+    V tomto praktiku v podstatě nemáme kontrolu nad aparaturou a mnoho hodnot máme zadané a musíme jim věřit (délky aparatury, převodní vztahy atd.).
+    Proto je poměrně obtížné
+
     \section*{Závěr}
+
+    Po kontrole vakua v aparatuře a zprovoznění zdroje atomů a detektoru byly proměřeny závislosti odezvy detektoru na množství dopadajících atomů na poloze detektoru.
+    Z těchto hodnot jsme získali
 
     \begin{thebibliography}{}
 
