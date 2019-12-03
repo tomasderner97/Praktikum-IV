@@ -57,17 +57,86 @@
     Během měření byla teplota pícky udržována na hodnotě $t = \SI{170}{\celsius}$.
     Pozorovaná závislost je uvedena v tabulce~\ref{tab:heating} a grafu na obrázku~\ref{fig:heating}.
 
-    \VAR{tab_heating}
-    \VAR{fig_heating}
+    
+\begin{table}[h]
+    \centering
+    \setlength{\tabcolsep}{15pt}
+    \begin{tabular}[t]{
+  S[table-format=3.0]
+  S[table-format=1.2]
+  S[table-format=3.0]
+  S[table-format=1.2]
+} \toprule
+{t}                 & {U}   & {t}                 & {U}   \\
+{$[\si{\celsius}]$} & {[V]} & {$[\si{\celsius}]$} & {[V]} \\ \midrule
+                120 &  0.13 &                 150 &  0.40 \\
+                125 &  0.16 &                 155 &  0.52 \\
+                130 &  0.25 &                 160 &  0.72 \\
+                135 &  0.26 &                 165 &  0.90 \\
+                140 &  0.30 &                 170 &  1.79 \\ \bottomrule
+\end{tabular}
+    \vspace{0pt}
+    \caption{Hodnoty závislosti odezvy detektoru na tepotě v pícce}
+    \label{tab:heating}
+\end{table}
+
+    
+\begin{figure}[h!]
+    \centering
+    \includegraphics{heating.pdf}
+    \vspace{0pt}
+    \caption{Závislost odezvy detektoru na teplotě v pícce}
+    \label{fig:heating}
+\end{figure}
+
 
     Pomocí přepínání polarity proudu tekoucího magnetickým analyzátorem za postupného snižování jeho hodnoty jsme demagnetizovali jádro analyzátoru.
     Poté jsme programem Stern-Gerlach proměřili závislost odezvy detektoru (závisející na počtu dopadajících atomů) na poloze detektoru pro různé hodnoty proudu protékajícího magnetickým analyzátorem a odpovídající hodnoty gradientu magnetického pole.
     Okometricky jsme odhadnuli polohy maxim píků a určili jejich vzdálenosti.
     Naměřené hodnoty jsou shrnuty v tabulce~\ref{tab:spread} a v grafech na obrázku~\ref{fig:curves}.
 
-    \VAR{tab_spread}
-    \VAR{fig_0A_fit}
-    \VAR{fig_curves}
+    
+\begin{table}[h]
+    \centering
+    \setlength{\tabcolsep}{15pt}
+    \begin{tabular}[t]{
+  S[table-format=1.2]
+  S[table-format=1.2]
+  S[table-format=1.2]
+  S[table-format=1.2]
+  S[table-format=1.3]
+} \toprule
+{$I$} & {$B$} & {$\Delta x$} & {$q$}  & {$\frac{\partial B}{\partial x}$} \\
+{[A]} & {[T]} & {[mm]}       & {[mm]} & {$[\si{\tesla\per\milli\metre}]$} \\ \midrule
+ 0.26 &  0.18 &         1.55 &   1.62 &                             0.070 \\
+ 0.38 &  0.28 &         1.89 &   2.25 &                             0.108 \\
+ 0.51 &  0.39 &         2.31 &   2.99 &                             0.151 \\
+ 0.77 &  0.57 &         3.14 &   4.36 &                             0.221 \\
+ 0.98 &  0.67 &         3.73 &   5.30 &                             0.259 \\ \bottomrule
+\end{tabular}
+    \vspace{0pt}
+    \caption{Naměřené hodnoty vzdálenosti maxim píků závislostí na poli v analyzátoru}
+    \label{tab:spread}
+\end{table}
+
+    
+\begin{figure}[h!]
+    \centering
+    \includegraphics{0A_fit.pdf}
+    \vspace{0pt}
+    \caption{Závislost odezvy detektoru na jeho poloze pro nulové pole v analyzátoru}
+    \label{fig:0A_fit}
+\end{figure}
+
+    
+\begin{figure}[h!]
+    \centering
+    \includegraphics{curves.pdf}
+    \vspace{0pt}
+    \caption{Závislosti odezvy detektoru na jeho poloze pro různá pole v analyzátoru}
+    \label{fig:curves}
+\end{figure}
+
 
     Abychom mohli dopočítat hodnotu Bohrova magnetonu, určili jsme hodnotu výrazu $\frac{q}{\frac{\partial B}{\partial x}}$ pomocí lineární regrese zobrazené v grafu na obrázku~\ref{fig:spread}.
     Směrnice fitovací přímky je $ k = \SI{0.0493 \pm 0.0008}{\tesla\per\square\milli\metre} $.
@@ -75,7 +144,15 @@
     \[ \mu_B = \SI{1.30 \pm 0.04 e-23}{\joule\per\tesla}. \]
 
     Tabulková hodnota činí \[ \mu_{B, \text{tab}} = \SI{0.93 e-23}{\joule\per\tesla}. \]
-    \VAR{fig_spread}
+    
+\begin{figure}[h!]
+    \centering
+    \includegraphics{spread.pdf}
+    \vspace{0pt}
+    \caption{Lineární fit pro výpočet Bohrova magnetonu}
+    \label{fig:spread}
+\end{figure}
+
 
     \section*{Diskuse}
 

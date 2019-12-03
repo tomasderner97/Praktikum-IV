@@ -27,9 +27,17 @@ OPEN_PDF_COMMAND = [
     "../output/main.pdf"
 ]
 
-heating_table_code = dataframe_to_booktabs_table(get_heating(),
-                                                 [("T", "t", "$[\\si{\\celsius}]$", "3.0"),
-                                                  ("U", "U", "[V]", "1.2")])
+heating_df = get_heating()
+heating_table_code = dataframe_to_booktabs_table({"T1": heating_df[:6]["T"],
+                                                  "U1": heating_df[:6]["U"],
+                                                  "T2": heating_df[6:]["T"],
+                                                  "U2": heating_df[6:]["U"]
+                                                  },
+                                                 [("T1", "t", "$[\\si{\\celsius}]$", "3.0"),
+                                                  ("U1", "U", "[V]", "1.2"),
+                                                  ("T2", "t", "$[\\si{\\celsius}]$", "3.0"),
+                                                  ("U2", "U", "[V]", "1.2"),
+                                                  ])
 
 spread_table_code = dataframe_to_booktabs_table(get_spread()[1:],
                                                 [("I", "$I$", "[A]", "1.2"),
@@ -48,10 +56,11 @@ tab_spread = make_table_float(spread_table_code, "spread", "Naměřené hodnoty 
 fig_heating = make_figure_float("heating.pdf", "heating", "Závislost odezvy detektoru na teplotě v pícce",
                                 position="h!")
 fig_0A_fit = make_figure_float("0A_fit.pdf", "0A_fit", "Závislost odezvy detektoru na jeho poloze pro nulové pole "
-                                                       "v analyzátoru")
+                                                       "v analyzátoru", position="h!")
 fig_curves = make_figure_float("curves.pdf", "curves", "Závislosti odezvy detektoru na jeho poloze pro různá pole "
-                                                       "v analyzátoru")
-fig_spread = make_figure_float("spread.pdf", "spread", "Lineární fit pro výpočet Bohrova magnetonu")
+                                                       "v analyzátoru", position="h!")
+fig_spread = make_figure_float("spread.pdf", "spread", "Lineární fit pro výpočet Bohrova magnetonu",
+                               position="h!")
 
 render_template(TEMPLATE_FILE,
                 LATEX_FILE,

@@ -11,7 +11,7 @@ def get_heating():
 
 def plot_heating():
     df = get_heating()
-    fig, ax = plt.subplots(figsize=[6, 3])
+    fig, ax = plt.subplots(figsize=[6, 2.5])
 
     ax.plot(df["T"], df["U"], "kx", label="Naměřené hodnoty")
     ax.set_xlabel("$t [\\si{\\celsius}]$")
