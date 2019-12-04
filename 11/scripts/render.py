@@ -1,31 +1,13 @@
 import subprocess
 
 from scireputils.latex_templates import render_template, make_figure_float, make_table_float, \
-    dataframe_to_booktabs_table
+    dataframe_to_booktabs_table, compile_latex_to_pdf
 
 from scripts.heating import get_heating
 from spread import get_spread
 
 TEMPLATE_FILE = "../templates/main.tex"
 LATEX_FILE = "../latex/main.tex"
-
-LATEX_COMMAND = [
-    "pdflatex",
-    "-file-line-error",
-    "-interaction=nonstopmode",
-    "-synctex=1",
-    "-output-format=pdf",
-    "-output-directory=../output",
-    "-aux-directory=../auxiliary",
-    "-include-directory=../classfiles",
-    "-include-directory=../latex",
-    LATEX_FILE
-]
-
-OPEN_PDF_COMMAND = [
-    "sumatrapdf",
-    "../output/main.pdf"
-]
 
 heating_df = get_heating()
 heating_table_code = dataframe_to_booktabs_table({"T1": heating_df[:6]["T"],
@@ -72,5 +54,4 @@ render_template(TEMPLATE_FILE,
                 fig_spread=fig_spread,
                 )
 
-subprocess.run(LATEX_COMMAND, check=True)
-subprocess.run(OPEN_PDF_COMMAND, check=True)
+compile_latex_to_pdf(LATEX_FILE, "../output")
